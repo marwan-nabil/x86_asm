@@ -3,13 +3,12 @@
 if not exist W:\build; mkdir W:\build
 pushd W:\build
     :: assemble
-    ml64 /c^
-    ..\code\main64.asm^
-    /Fo main.obj
+    nasm -fwin32 ..\code\main.asm -o main.obj
 
     :: link
     link^
-    /NOLOGO /DEBUG /SUBSYSTEM:CONSOLE /MACHINE:X86 /NODEFAULTLIB /ENTRY:main^
-    /PDB:main.pdb /MAP:main.map /OUT:main.exe^
-    main64.obj kernel32.lib
+    /NOLOGO /DEBUG /SUBSYSTEM:CONSOLE /NODEFAULTLIB^
+    /MAP:main.map /OUT:main.exe^
+    /ENTRY:main^
+    main.obj kernel32.lib
 popd
