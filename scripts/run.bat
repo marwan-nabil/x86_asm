@@ -1,5 +1,5 @@
 @echo off
 
 pushd W:\data
-    ..\build\main.exe %*
+    ..\build\x86_asm.exe %*
 popd
